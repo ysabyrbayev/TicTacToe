@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/ysabyrbayev/Documents/VSCode Projects/cpp-projects/TicTacToe/TicTacToe'
+relocations:     []
+...
