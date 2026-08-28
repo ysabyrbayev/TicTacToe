@@ -29,14 +29,29 @@ int main() {
 
         // get player input
         cout << "Current Player is " << currentPlayer << endl;
-        cout << "Enter r c from 0-2 for row and column: ";
-        cin >> r >> c;
+        while (true) {
+            cout << "Enter r c from 0-2 for row and column: ";
+            cin >> r >> c;
+            if (r < 0 || r > 2 || c < 0 || c > 2) {
+                cout << "Invalid input, try again" << endl;
+            }
+            else if (board[r][c] != ' ') {
+                cout << "Tile if full, try again." << endl;
+            }
+            else {
+                break;
+            }
+            // reset values
+            r = -1;
+            c = -1;
+            cin.clear(); // clear error flags
+            cin.ignore(10000, '\n'); // discard values
+            // (skips to the next new line \n up to 10'000 char) already in input stream
+        }
 
         board[r][c] = currentPlayer;
         currentPlayer = (currentPlayer == playerX) ? playerO : playerX;
     }
     
-
-
     return 0;
 }
